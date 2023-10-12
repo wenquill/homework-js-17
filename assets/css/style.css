@@ -1,0 +1,99 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(241, 239, 235);
+    font-family: 'Poppins', sans-serif;
+}
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    background-color: #fff;
+    box-shadow: 0 0 10px #9b9595;
+}
+
+.side-photo {
+    width: 100%;
+    max-height: 400px;
+}
+
+.side-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    opacity: 70%;
+    filter:blur(3px)
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto;
+    z-index: 5;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-info {
+    text-align: center;
+    padding: 20px;
+}
+
+.statistics {
+    border-top: 2px solid rgb(241, 239, 235);
+    padding: 20px;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.stat-sec {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.name {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.location {
+    font-size: 20px;
+}
+
+.criteria {
+    font-weight: 700;
+}
+
+.male {
+    box-shadow: 0 0 10px rgb(102, 102, 209);
+}
+
+.female {
+    box-shadow: 0 0 15px rgb(199, 55, 139);
+}
