@@ -18,24 +18,45 @@ function App() {
         profilePhoto: 'https://pbs.twimg.com/media/FM4GhjrWUAYWvJI.jpg',
     }
 
-    return <UserCard name={userInfo.name} location={userInfo.location} statistics={userInfo.statistics} gender={userInfo.gender} sidePhoto={userInfo.sidePhoto} profilePhoto={userInfo.profilePhoto} />;
+    return <UserCard user={userInfo} />;
 }
 
-function UserCard({name, location, statistics, gender, sidePhoto, profilePhoto}) {
+function UserCard(props) {
+    const {name, location, statistics, gender, sidePhoto, profilePhoto} = props.user;
 
     return (
         <article>
-            <div className="side-photo">
-                <img src={sidePhoto} alt={name} />
-            </div>
-            <div className={gender === 'male'? 'male profile-photo' : 'female profile-photo'}>
-                <img src={profilePhoto} alt={name} />
-            </div>
-            <div className="user-info">
-                <p className="name">{name}</p>
-                <p className="location">{location.country}, {location.city}</p>
-            </div>
-            <div className="statistics">
+            <UserPhoto classs='side-photo' src={sidePhoto} alt={name}/>
+
+            <UserPhoto classs={gender === 'male'? 'male profile-photo' : 'female profile-photo'} src={profilePhoto} alt={name}/>
+            
+            <UserInfo name={name} location={location}/>
+            
+            <UserStatistics statistics={statistics}/>
+        </article>
+    );
+}
+
+function UserPhoto({classs, src, alt}) {
+    return (
+        <div className={classs}>
+                <img src={src} alt={alt} />
+        </div>
+    );
+}
+
+function UserInfo({name, location}) {
+    return (
+        <div className='user-info'>
+            <p className='name'>{name}</p>
+            <p className='location'>{location.country}, {location.city}</p>
+        </div>
+    );
+}
+
+function UserStatistics({statistics}) {
+    return (
+        <div className="statistics">
                 <div className="stat-sec">
                     <span className="criteria">FOLLOWERS</span>
                     <span className="value">{statistics.followers}</span>
@@ -48,7 +69,6 @@ function UserCard({name, location, statistics, gender, sidePhoto, profilePhoto})
                     <span className="criteria">TRACKS</span>
                     <span className="value">{statistics.tracks}</span>
                 </div>
-            </div>
-        </article>
+        </div>
     );
 }
